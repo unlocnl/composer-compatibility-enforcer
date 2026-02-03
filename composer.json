@@ -1,0 +1,34 @@
+{
+  "name": "unloc/composer-compatibility-enforcer",
+  "type": "wordpress-muplugin",
+  "description": "Remove selected namespaces/classes from plugin Composer autoloaders.",
+  "keywords": [
+    "bedrock",
+    "wordpress",
+    "mu-plugin",
+    "composer",
+    "autoload",
+    "compatibility",
+    "acorn"
+  ],
+  "homepage": "https://github.com/unlocnl/composer-compatibility-enforcer",
+  "support": {
+    "issues": "https://github.com/unlocnl/composer-compatibility-enforcer/issues"
+  },
+  "authors": [
+    {
+      "name": "David Beentjes",
+      "email": "info@unloc.nl",
+      "homepage": "https://unloc.nl"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Unloc\\ComposerCompatibilityEnforcer\\": "src/"
+    }
+  }
+}
