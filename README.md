@@ -21,6 +21,29 @@ composer require unloc/composer-compatibility-enforcer
 
 The package type is `wordpress-muplugin`, so it will automatically install to `web/app/mu-plugins/` on Bedrock setups.
 
+## Configuration
+
+This plugin ships with no default rules. Add rules via the `composer_compatibility_enforcer_rules` filter.
+
+Since this is an MU plugin, the filter must be registered in code that loads before or during `plugins_loaded` (priority < 11). The recommended approach is a separate MU plugin file:
+
+**`web/app/mu-plugins/composer-compatibility-enforcer-rules.php`**
+
+```php
+<?php
+
+add_filter('composer_compatibility_enforcer_rules', static function (array $rules): array {
+    $rules[] = [
+        'plugin_file' => 'google-listings-and-ads/google-listings-and-ads.php',
+        'namespaces'  => ['Psr\\Log\\', 'Monolog\\'],
+    ];
+
+    return $rules;
+});
+```
+
+> **Bedrock note:** Files directly in `mu-plugins/` are auto-loaded by WordPress. The rules file needs no loader entry — just drop it in.
+
 ### Rule Array Keys
 
 Each rule array supports:

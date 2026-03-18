@@ -4,7 +4,7 @@
  * Description: Removes selected namespaces/classes from plugin Composer autoloaders.
  * Plugin URI:  https://github.com/unlocnl/composer-compatibility-enforcer
  * Version:     1.0.0
- * Author:      David Beentje
+ * Author:      David Beentjes
  * Author URI:  https://unloc.nl
  */
 
@@ -24,7 +24,7 @@ add_action(
             return;
         }
 
-        $enforcer = new \Unloc\ComposerCompatibilityEnforcer\Enforcer((array) $rules);
+        $enforcer = new \Unloc\ComposerCompatibilityEnforcer\Enforcer((array)$rules);
         $enforcer->apply();
     },
     11
